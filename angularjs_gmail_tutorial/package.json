@@ -1,0 +1,22 @@
+{
+  "name": "angularjs_gmail_tutorial",
+  "version": "1.0.0",
+  "main": "sqltest.js",
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "msnodesqlv8": "^0.6.11",
+    "mssql": "^4.3.0",
+    "mysql": "^2.16.0",
+    "tedious": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

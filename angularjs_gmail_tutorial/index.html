@@ -1,63 +1,37 @@
-<!doctype html>
-<html>
-    <head>
-      <meta charset="utf-8">
-      <title>angulartestnamsayin</title>
-      <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- loading them scripts. JQUERY BEFORE ANGULAR DAWG!! -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-        <div ng-app="myApp" ng-controller="myCtrl">
-        <input type="text" ng-model="name">
-        <p>Hi {{name}} </p>
-        <p>Today's welcome message is:</p>
-        <h1>{{myWelcome}} ... {{reverseWelcome}}</h1>
-        <p>What time is it rn?: {{clock}}</p>
-        <br><br>
-        <p>http:test: {{http_test}}</p>
-        </div>
-
-        <script>
-        var app = angular.module('myApp', []);
-
-        //custom service, returns x in a reversed string
-        app.service('reversal', function(){
-          this.myFunc = function(x){
-              var i, text = "";
-              for (i = x.length-1; i>=0; i--){
-                text += x[i];
-              }
-              return text;
-          }
-        });
-
-        app.controller('myCtrl', function($scope, $timeout, $interval, reversal, $http) {
-          $scope.myWelcome = "WELCOME BRO!!";
-          $scope.reverseWelcome = reversal.myFunc($scope.myWelcome);
-          // time out service for timed events
-          $timeout(function(){
-            $scope.myWelcome = "Ok u overstayed ur welcome.";
-            $scope.reverseWelcome = reversal.myFunc($scope.myWelcome);
-          }, 5000);
-
-          // interval service for displaying locale time
-          $interval(function(){
-            $scope.clock = new Date().toLocaleTimeString();
-          });
-
-          $http.get("test.html")
-          .then(function(response) {
-            $scope.http_test = response.data;
-          }, function(response){
-            $scope.http_test = "FAIL";
-          });
-
-        });
-        </script>
-
-        <!-- end of CUSTOM scripts /////////////////////////////////////////////////////////////////////////////////////  -->
-
-    </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="Scripts/app.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+    <form>
+      Food name:
+      <input type="text" ng-model="name">
+      <br>
+      <br> fid:
+      <input type="text" ng-model="fid">
+      <br>
+      <br> Serving Size (g):
+      <input type="text" ng-model="grams">
+      <br>
+      <br> Calories:
+      <input type="text" ng-model="calories">
+      <br>
+      <br> Protein:
+      <input type="text" ng-model="protein">
+      <br>
+      <br> Carbs:
+      <input type="text" ng-model="carb">
+      <br>
+      <br> Fats:
+      <input type="text" ng-model="fats">
+      <br>
+      <br> Price ($):
+      <input type="text" ng-model="price">
+      <br>
+      <input type="submit" value="Submit" ng-click="submit()">
+    </form>
+  </div>
+</body>
