@@ -1,5 +1,5 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope, $http) {
    $scope.submit= function(){
       var data = $.param({
         food: JSON.stringify({
@@ -14,7 +14,7 @@ app.controller('myCtrl', function($scope) {
         })
       });
 
-      $http.post("sqltest.js", data).success(function(data, status) {
+      $http.post("/view/:fid", data).success(function(data, status) {
         console.log('Data posted successfully');
       })
    }
