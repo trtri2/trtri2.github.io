@@ -14,7 +14,7 @@ app.controller('myCtrl', function($scope, $http) {
         })
       });
 
-      $http.post("/view/:fid", data).success(function(data, status) {
+      $http.post("https://trtri2.github.io/angularjs_gmail_tutorial/index.html", data).success(function(data, status) {
         console.log('Data posted successfully');
       })
    }
