@@ -30,11 +30,15 @@ conn.connect(function(err){
   readDatabase();
 })
 
-app.post('https://trtri2.github.io/angularjs_gmail_tutorial/index.html', function(req, res){
+app.post('api/food', function(req, res){
   var food = req.body.params;
   var query = 'INSERT INTO Food SET ?'
   insertDatabase(query, food);
-})
+ })
+
+app.get('api/food', function(req,res){
+);
+});
 
 
 ///////////// functions //////////////////
