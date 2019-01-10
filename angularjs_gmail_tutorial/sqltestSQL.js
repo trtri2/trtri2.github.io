@@ -34,12 +34,14 @@ app.post('api/food', function(req, res){
   var food = req.body.params;
   var query = 'INSERT INTO Food SET ?'
   insertDatabase(query, food);
- })
-
-app.get('api/food', function(req,res){
-);
 });
 
+app.get('api/food', function(req,res){
+  var food = req.body.params;
+  var query = 'INSERT INTO Food SET?'
+  insertDatabase(query,food);
+});
+app.listen(3306, () => console.log(`Example app listening on port ${3306}!`))
 
 ///////////// functions //////////////////
 

@@ -48,7 +48,7 @@
             $scope.clock = new Date().toLocaleTimeString();
           });
 
-          // http request to get data from another html file. IT MUST BE HOSTED!! i.e. github pages
+          // http request to get data from another html file. IT MUST BE HOSTED!! i.e. NOT github pagesL OL
           $http.get("test.html").then(function(response) {
             $scope.http_test = response.data;
           }, function(response){

@@ -1,4 +1,82 @@
 <!DOCTYPE html>
 <html>
-<h1>Postfix Evaluator</h1>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- AngularJS Material styles for this template -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link href="../css/postfix.css" rel="stylesheet">
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+  <div ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+    <md-toolbar id="tbar" md-scroll-shrink>
+      <div class="md-toolbar-tools">
+        <md-button href="../projects.html" aria-label="Go Back">
+          Back to Projects
+        </md-button>
+        <h1 flex = "">Postfix Evaluator</h1>
+        <md-button class="md-raised md-accent md-hue-3" aria-label="Learn More">
+         Help
+        </md-button>
+      </div>
+    </md-toolbar>
+    <h2>Enter an expression: <input ng-model="exp"></h2>
+
+    <div class ="calc" layout="column" layout-wrap="">
+      <div layout ="row" layout-wrap="">
+        <md-button flex = "10" class="md-raised" ng-click="exppend(7)">7</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(8)">8</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(9)">9</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="del()">⌫</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="clear()">CE</md-button>
+        <div layout = column>
+        <p>Normal Expression: {{nexpression}}</p>
+        <p>Postfix Expression: {{pexpression}}</p>
+        </div>
+
+      </div>
+      <div layout ="row" layout-wrap="">
+        <md-button flex = "10" class="md-raised" ng-click="exppend(4)">4</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(5)">5</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(6)">6</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend('/')">÷</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend('*')">×</md-button>
+
+      </div>
+      <div layout ="row" layout-wrap="">
+        <md-button flex = "10" class="md-raised" ng-click="exppend(1)">1</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(2)">2</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(3)">3</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend('-')">-</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend('+')">+</md-button>
+      </div>
+      <div layout ="row" layout-wrap="">
+        <md-button flex = "10" class="md-raised" ng-click="exppend('(')">(</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(0)">0</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend(')')">)</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="exppend('.')">.</md-button>
+        <md-button flex = "10" class="md-raised" ng-click="calc(exp)">=</md-button>
+      </div>
+    </div>
+
+  </div> <!-- end of app -->
+
+    <!-- AngularJS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    <!-- application bootstrap -->
+    <script src="postfix.js"></script>
+  </body>
 </html>

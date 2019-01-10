@@ -3,13 +3,10 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
   color: #5a5a5a;
+  min-height: 100vh;
+  background-image: linear-gradient(#2C3E50, #182027);
 }
-
-
-/* CUSTOM STYLES
--------------------------------------------------- */
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -65,47 +62,44 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 500px;
-  margin-bottom: 60px;
+  height:100vh;
+  margin-bottom: 10px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
 }
-
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
+    height:100vh;
   background-color: #777;
 }
+
 .first-slide {
-  background-image: linear-gradient(#2C3E50, #182027);
   border-style: solid;
-  padding-left:650px;
-  padding-right: 650px;
-  padding-top:150px;
-  padding-bottom: 175px;
+  padding: 200px;
+  background-image: url("../assets/spiration dark.png")
 }
 .second-slide {
-    background-image: linear-gradient(#2C3E50, #182027);
-
     object-fit: scale-down;
     padding-bottom: 130px;
     padding-top: 60px;
+    background-image: url("../assets/spiration dark.png")
 }
-.third-slide {
-    background-image: linear-gradient(#2C3E50, #182027);
+
+.third-slide{
+  background-image: url("../assets/spiration dark.png")
 }
-.fourth-slide {
-    background-image: linear-gradient(#2C3E50, #182027);
+
+.fourth-slide{
+  background-image: url("../assets/spiration dark.png")
 }
 
 .carousel-inner > .item > img {
-  position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 500px;
+  height: 100%;
 }
 
 
@@ -126,6 +120,7 @@ body {
 }
 
 
+
 /* Featurettes
 ------------------------- */
 
@@ -140,7 +135,12 @@ body {
   letter-spacing: -1px;
 }
 
-
+.lead {
+  color: white;
+}
+.text-muted{
+  color: #fff;
+}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
