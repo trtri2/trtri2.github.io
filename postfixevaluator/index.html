@@ -28,7 +28,7 @@
         </md-button>
       </div>
     </md-toolbar>
-    <h2>Enter an expression: <input ng-model="exp"></h2>
+    <h2>Enter an expression: <input ng-change="update()" ng-model="exp"></h2>
 
     <div class ="calc" layout="column" layout-wrap="">
       <div layout ="row" layout-wrap="">

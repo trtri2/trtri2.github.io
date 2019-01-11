@@ -77,13 +77,11 @@ body {
 
 .first-slide {
   border-style: solid;
-  padding: 200px;
+  padding: 300px;
   background-image: url("../assets/spiration dark.png")
 }
 .second-slide {
     object-fit: scale-down;
-    padding-bottom: 130px;
-    padding-top: 60px;
     background-image: url("../assets/spiration dark.png")
 }
 
