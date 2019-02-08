@@ -176,7 +176,7 @@ app.controller('myCtrl', function($scope, postfix){
   }
 
   $scope.update = function(){
-    $scope.pexpression = postfix.getPostFix($scope.exp); 
+    $scope.pexpression = postfix.getPostFix($scope.exp);
   }
 
 

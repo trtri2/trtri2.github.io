@@ -90,8 +90,17 @@ body {
 }
 
 .fourth-slide{
-  background-image: url("../assets/spiration dark.png")
+  border-style: solid;
+  background-image: url("../assets/spiration dark.png");
+  padding-top: 300px;
+  padding-left: 800px;
+  padding-right: 800px;
+  padding-bottom: 300px
 }
+
+
+
+
 
 .carousel-inner > .item > img {
   top: 0;
