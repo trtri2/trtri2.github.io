@@ -1,7 +1,7 @@
 # trtri2.github.io
 # Electrical Grid Analysis
+# CMPT 318 - Cybersecurity, Simon Fraser University
 
-- Analyzed a data set of U.S. electrical power grid from 2007 using RStudio and various anomaly detection techniques to test for anomalous data trends.
-- Utilized RStudio packages to train hidden markov models, calculate moving averages, and explore data sets.
+- A collaborative project completed for CMPT 318, Cybersecurity that analyzed the data set of a U.S. electrical power grid from 2007.
 
-- CMPT 318: Cybersecurity, SFU
+- The project utilized RStudio and various anomaly detection techniques to test for abnormal data trends. Packages were used to train hidden markov models, to calculate moving averages, and visualize the data sets.
