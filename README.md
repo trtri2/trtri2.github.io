@@ -1,3 +1,5 @@
 # trtri2.github.io
 
-This is my github pages and repository to my cmpt projects!
+A repository for Leon's portfolio website, tritri2.github.io, including industry experiences, personal projects, and contact details. 
+
+The website was written in HTML, JavaScript utilized responsive web design via Bootstrap. 
