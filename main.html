@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- AngularJS Material styles for this template -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <style>
+  input{
+    margin-bottom: 10px;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+  }
+  *{ padding-left: 5px
+  }
+
+  .bracket{
+      text-align: center;
+  }
+
+
+  </style>
+
+  <body>
+    <h1>Bracket Generator</h1>
+    <div class="entry">
+    <label>1:</label><input id='p1' type='text' value='a'></input></br>
+    <label>2:</label><input id='p2' type='text' value='b'></input></br>
+    <label>3:</label><input id='p3' type='text' value='c'></input></br>
+    <label>4:</label><input id='p4' type='text' value='d'></input></br>
+    <label>5:</label><input id='p5' type='text' value='e'></input></br>
+    <label>6:</label><input id='p6' type='text' value='f'></input></br>
+    <label id='test'></label>
+    <button id='generate' onclick='generate()'>Generate</button>
+  </div> <!-- end of entry -->
+</br>
+<h2> Bracket </h2>
+  <div class="bracket">
+
+    <h3>Game 1: </h3>
+    <p><label class="sd1"></label> & <label class="sd6"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd4"></label> </p>
+
+    <h3>Game 2: </h3>
+    <p><label class="sd4"></label> & <label class="sd5"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd3"></label> </p>
+
+    <h3>Game 3: </h3>
+    <p><label class="sd3"></label> & <label class="sd5"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd6"></label> </p>
+
+    <h3>Game 4: </h3>
+    <p><label class="sd3"></label> & <label class="sd6"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd2"></label> </p>
+
+    <h3>Game 5: </h3>
+    <p><label class="sd1"></label> & <label class="sd5"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd4"></label> & <label class="sd6"></label> </p>
+
+    <h3>Game 6: </h3>
+    <p><label class="sd1"></label> & <label class="sd4"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd3"></label> </p>
+
+    <h3>Game 7: </h3>
+    <p><label class="sd4"></label> & <label class="sd5"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd6"></label> </p>
+
+    <h3>Game 8: </h3>
+    <p><label class="sd3"></label> & <label class="sd4"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd5"></label> & <label class="sd6"></label> </p>
+
+    <h3>Game 9: </h3>
+    <p><label class="sd2"></label> & <label class="sd5"></label> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd3"></label> </p>
+  </div> <!-- end of bracket -->
+
+<h2> Scoreboard </h2> <button onclick='refreshTable()'>Refresh</button>
+  <div class="scoreboard">
+    <table>
+      <tr>
+        <th>Players</th>
+        <th>Score</th>
+        <th>#Games Remaining</th>
+        <th>%RNG</th>
+      </tr>
+      <tr>
+        <td id='tp1' type='text'></td>
+        <td id='tp1score' type='text'></td>
+        <td id='tp1games' type='text'></td>
+        <td id='tp1rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp2' type='text'></td>
+        <td id='tp2score' type='text'></td>
+        <td id='tp2games' type='text'></td>
+        <td id='tp2rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp3' type='text'></td>
+        <td id='tp3score' type='text'></td>
+        <td id='tp3games' type='text'></td>
+        <td id='tp3rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp4' type='text'></td>
+        <td id='tp4score' type='text'></td>
+        <td id='tp4games' type='text'></td>
+        <td id='tp4rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp5' type='text'></td>
+        <td id='tp5score' type='text'></td>
+        <td id='tp5games' type='text'></td>
+        <td id='tp5rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp6' type='text'></td>
+        <td id='tp6score' type='text'></td>
+        <td id='tp6games' type='text'></td>
+        <td id='tp6rng' type='text'></td>
+      </tr>
+    </table>
+  </div> <!-- end of scoreboard-->
+  </div> <!-- end of app -->
+  </body>
+  <script src="./bracket.js"></script>
+</html>
