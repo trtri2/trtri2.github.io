@@ -5,6 +5,7 @@ var player4 = new Object();
 var player5 = new Object();
 var player6 = new Object();
 var playerArray = [player1, player2, player3, player4, player5, player6];
+var drawBasket = [];
 
 
 //Takes the 6 player inputs and generates them in an array. This populates the bracket and scoreboard.
@@ -30,6 +31,7 @@ function generate(){
     var tpgames = "tp"+(i+1)+"games";
     document.getElementById(tpscore).innerHTML = playerArray[i].wins+"-"+playerArray[i].losses;
     document.getElementById(tpgames).innerHTML = 6 - (playerArray[i].wins+playerArray[i].losses);
+    document.getElementById("entry").style.display = "none";
   }
 
   //Populate bracket after the players are randomized.
@@ -88,6 +90,48 @@ function generate(){
       document.getElementById("tp"+(l2+1)+"games").innerHTML = 6 - (playerArray[l2].wins+playerArray[l2].losses);
   }
 
+function displayRaffle(){
+  document.getElementById("raffleModel").style.display = "block";
+}
+
+function closeRaffle(){
+  document.getElementById("raffleModel").style.display = "none";
+}
+
+function selectRaffle(){
+  var totalWins = 18;
+  var timer = 3;
+  document.getElementsByClassName('pyro')[0].style.visibility = "hidden";
+  for(let i = 0; i < playerArray.length; i++){
+		for(let j = 0; j < playerArray[i].wins; j++){
+				drawBasket.push(playerArray[i].name);
+		}
+	}
+
+	for(let k = 0; k < 3; k++){
+		drawBasket = randomize(drawBasket);
+	}
+
+  document.getElementById('raffleBtn').disabled = true;
+  var counting = setInterval(function(){
+    if(timer == 0){
+      document.getElementById('winner').innerHTML = chooseRandom();
+      drawBasket = [];
+      document.getElementById('raffleBtn').disabled = false;
+      document.getElementsByClassName('pyro')[0].style.visibility = 'visible';
+
+      clearInterval(counting);
+    } else {
+      document.getElementById('winner').innerHTML = timer;
+      timer--;
+    }
+  }, 1000);
+
+}
+
+function chooseRandom(){
+  return drawBasket[Math.floor(Math.random() * 18)];
+}
 
 //Shuffles the playerArray so that order of names entered is arbitrary.
 function randomize(playerArray){
