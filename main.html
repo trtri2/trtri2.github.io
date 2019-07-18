@@ -8,7 +8,8 @@
 
     <!-- AngularJS Material styles for this template -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
-
+    <link rel='stylesheet' href='./fireworks.css'>
+    
     <!-- font style -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -39,11 +40,55 @@
     padding: 50px;
   }
 
+
+/* The Modal (background) */
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
   </style>
 
   <body>
+    <div style="visibility: hidden" class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+    </div>
+
     <h1>Daniel's mom Generator</h1>
-    <div class="entry">
+    <div id="entry">
     <label>1:</label><input id='p1' type='text' ></input></br>
     <label>2:</label><input id='p2' type='text' ></input></br>
     <label>3:</label><input id='p3' type='text' ></input></br>
@@ -152,9 +197,17 @@
     </table>
   </div> <!-- end of scoreboard-->
 
-  <div class="raffle">
-  <button>RAFFLE THE WINNER</button>
-  </div> <!-- end of raffle -->
+
+  <button id="modalBtn" onclick="displayRaffle()">RAFFLE THE WINNER</button>
+  <div id="raffleModel" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRaffle()">&times;</span>
+      <button id="raffleBtn" onclick="selectRaffle()">whos got that sauce</button>
+      <h2>YOUR CHAMPION IS:</h2>
+      <h3 id="winner"></h3>
+    </div>
+  </div>
+
   </div> <!-- end of app -->
   </body>
   <script src="./bracket.js"></script>
