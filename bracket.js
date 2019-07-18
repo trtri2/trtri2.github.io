@@ -21,7 +21,12 @@ function generate(){
   for (i = 0; i<playerArray.length; i++){
     document.getElementById("tp"+(i+1)).innerHTML = playerArray[i].name;
   }
-  refreshTable();
+  for (i = 0; i<playerArray.length; i++){
+    var tpscore = "tp"+(i+1)+"score";
+    var tpgames = "tp"+(i+1)+"games";
+    document.getElementById(tpscore).innerHTML = playerArray[i].wins+"-"+playerArray[i].losses;
+    document.getElementById(tpgames).innerHTML = 6 - (playerArray[i].wins+playerArray[i].losses);
+  }
 
   for (j = 0; j<6; j++){
   document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
@@ -31,22 +36,51 @@ function generate(){
   document.getElementsByClassName("sd5")[j].innerHTML = playerArray[4].name;
   document.getElementsByClassName("sd6")[j].innerHTML = playerArray[5].name;
   }
+}
+
+function refreshTable(w1, w2, boxID, l1, l2){
+
+    var lastChar = boxID[boxID.length - 1];
+    var gameName = boxID.slice(0, boxID.length - 1);
+    if (lastChar == 'a'){
+      var checkboxWinner = document.getElementById(gameName+'a');
+      var checkboxLoser = document.getElementById(gameName+'b');
+    } else {
+      var checkboxLoser = document.getElementById(gameName+'a');
+      var checkboxWinner = document.getElementById(gameName+'b');
+    }
+
+
+    if (checkboxWinner.checked){
+      playerArray[w1].wins++;
+      playerArray[w2].wins++;
+      playerArray[l1].losses++;
+      playerArray[l2].losses++;
+      checkboxLoser.disabled = true;
+    }else{
+      playerArray[w1].wins--;
+      playerArray[w2].wins--;
+      playerArray[l1].losses--;
+      playerArray[l2].losses--;
+      checkboxLoser.disabled = false;
+    }
+
+
+    document.getElementById("tp"+(w1+1)+"score").innerHTML = playerArray[w1].wins+"-"+playerArray[w1].losses;
+    document.getElementById("tp"+(w2+1)+"score").innerHTML = playerArray[w2].wins+"-"+playerArray[w2].losses;
+    document.getElementById("tp"+(l1+1)+"score").innerHTML = playerArray[l1].wins+"-"+playerArray[l1].losses;
+    document.getElementById("tp"+(l2+1)+"score").innerHTML = playerArray[l2].wins+"-"+playerArray[l2].losses;
+
+    document.getElementById("tp"+(w1+1)+"games").innerHTML = 6 - (playerArray[w1].wins+playerArray[w1].losses);
+    document.getElementById("tp"+(w2+1)+"games").innerHTML = 6 - (playerArray[w2].wins+playerArray[w2].losses);
+    document.getElementById("tp"+(l1+1)+"games").innerHTML = 6 - (playerArray[l1].wins+playerArray[l1].losses);
+    document.getElementById("tp"+(l2+1)+"games").innerHTML = 6 - (playerArray[l2].wins+playerArray[l2].losses);
+
 
 
 }
 
-function createBracket(){
 
-}
-
-function refreshTable(){
-  for (i = 0; i<playerArray.length; i++){
-    var tpscore = "tp"+(i+1)+"score";
-    var tpgames = "tp"+(i+1)+"games";
-    document.getElementById(tpscore).innerHTML = playerArray[i].wins+"-"+playerArray[i].losses;
-    document.getElementById(tpgames).innerHTML = 6 - (playerArray[i].wins+playerArray[i].losses);
-  }
-}
 
 function randomize(playerArray){
   var m = playerArray.length;
