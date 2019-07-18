@@ -6,6 +6,9 @@ var player5 = new Object();
 var player6 = new Object();
 var playerArray = [player1, player2, player3, player4, player5, player6];
 
+
+//Takes the 6 player inputs and generates them in an array. This populates the bracket and scoreboard.
+//TODO: add an extra 'are you sure?' prompt when generating to avoid accidental overwriting. Or disable/remove the button.
 function generate(){
   //assign names to player objects
   for (i = 0; i<playerArray.length; i++){
@@ -17,17 +20,19 @@ function generate(){
   //randomize the players
   randomize(playerArray);
 
-  //Populate player names in the scoreboard & bracket.
+  //Initialize scoreboard
   for (i = 0; i<playerArray.length; i++){
+    //Populate names
     document.getElementById("tp"+(i+1)).innerHTML = playerArray[i].name;
-  }
-  for (i = 0; i<playerArray.length; i++){
+
+    //Populate scores & remaining games
     var tpscore = "tp"+(i+1)+"score";
     var tpgames = "tp"+(i+1)+"games";
     document.getElementById(tpscore).innerHTML = playerArray[i].wins+"-"+playerArray[i].losses;
     document.getElementById(tpgames).innerHTML = 6 - (playerArray[i].wins+playerArray[i].losses);
   }
 
+  //Populate bracket after the players are randomized.
   for (j = 0; j<6; j++){
   document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
   document.getElementsByClassName("sd2")[j].innerHTML = playerArray[1].name;
@@ -38,50 +43,53 @@ function generate(){
   }
 }
 
-function refreshTable(w1, w2, boxID, l1, l2){
+// Called everytime a checkbox is clicked. Passes playerID for the 2 winners, the checkbox ID, and playerID for 2 losers.
+  function refreshTable(w1, w2, boxID, l1, l2){
 
-    var lastChar = boxID[boxID.length - 1];
-    var gameName = boxID.slice(0, boxID.length - 1);
-    if (lastChar == 'a'){
-      var checkboxWinner = document.getElementById(gameName+'a');
-      var checkboxLoser = document.getElementById(gameName+'b');
-    } else {
-      var checkboxLoser = document.getElementById(gameName+'a');
-      var checkboxWinner = document.getElementById(gameName+'b');
-    }
+      //This is used to get the counterpart checkbox reference. (teamA & teamB's checkboxes)
+      var lastChar = boxID[boxID.length - 1];
+      var gameName = boxID.slice(0, boxID.length - 1);
+
+      //If last character is 'a' then teamA won, and teamB lost. Else vice versa.
+      if (lastChar == 'a'){
+        var checkboxWinner = document.getElementById(gameName+'a');
+        var checkboxLoser = document.getElementById(gameName+'b');
+      } else {
+        var checkboxLoser = document.getElementById(gameName+'a');
+        var checkboxWinner = document.getElementById(gameName+'b');
+      }
+
+      //Disable the loser's checkbox and update the scores.
+      if (checkboxWinner.checked){
+        playerArray[w1].wins++;
+        playerArray[w2].wins++;
+        playerArray[l1].losses++;
+        playerArray[l2].losses++;
+        checkboxLoser.disabled = true;
+      //In case the user makes a mistake, they can uncheck the checkbox to change their option. Revert the scores
+      }else{
+        playerArray[w1].wins--;
+        playerArray[w2].wins--;
+        playerArray[l1].losses--;
+        playerArray[l2].losses--;
+        checkboxLoser.disabled = false;
+      }
+
+      //Update the four player's points in scoreboard
+      document.getElementById("tp"+(w1+1)+"score").innerHTML = playerArray[w1].wins+"-"+playerArray[w1].losses;
+      document.getElementById("tp"+(w2+1)+"score").innerHTML = playerArray[w2].wins+"-"+playerArray[w2].losses;
+      document.getElementById("tp"+(l1+1)+"score").innerHTML = playerArray[l1].wins+"-"+playerArray[l1].losses;
+      document.getElementById("tp"+(l2+1)+"score").innerHTML = playerArray[l2].wins+"-"+playerArray[l2].losses;
+
+      //Update the four player's remaining games in scoreboard
+      document.getElementById("tp"+(w1+1)+"games").innerHTML = 6 - (playerArray[w1].wins+playerArray[w1].losses);
+      document.getElementById("tp"+(w2+1)+"games").innerHTML = 6 - (playerArray[w2].wins+playerArray[w2].losses);
+      document.getElementById("tp"+(l1+1)+"games").innerHTML = 6 - (playerArray[l1].wins+playerArray[l1].losses);
+      document.getElementById("tp"+(l2+1)+"games").innerHTML = 6 - (playerArray[l2].wins+playerArray[l2].losses);
+  }
 
 
-    if (checkboxWinner.checked){
-      playerArray[w1].wins++;
-      playerArray[w2].wins++;
-      playerArray[l1].losses++;
-      playerArray[l2].losses++;
-      checkboxLoser.disabled = true;
-    }else{
-      playerArray[w1].wins--;
-      playerArray[w2].wins--;
-      playerArray[l1].losses--;
-      playerArray[l2].losses--;
-      checkboxLoser.disabled = false;
-    }
-
-
-    document.getElementById("tp"+(w1+1)+"score").innerHTML = playerArray[w1].wins+"-"+playerArray[w1].losses;
-    document.getElementById("tp"+(w2+1)+"score").innerHTML = playerArray[w2].wins+"-"+playerArray[w2].losses;
-    document.getElementById("tp"+(l1+1)+"score").innerHTML = playerArray[l1].wins+"-"+playerArray[l1].losses;
-    document.getElementById("tp"+(l2+1)+"score").innerHTML = playerArray[l2].wins+"-"+playerArray[l2].losses;
-
-    document.getElementById("tp"+(w1+1)+"games").innerHTML = 6 - (playerArray[w1].wins+playerArray[w1].losses);
-    document.getElementById("tp"+(w2+1)+"games").innerHTML = 6 - (playerArray[w2].wins+playerArray[w2].losses);
-    document.getElementById("tp"+(l1+1)+"games").innerHTML = 6 - (playerArray[l1].wins+playerArray[l1].losses);
-    document.getElementById("tp"+(l2+1)+"games").innerHTML = 6 - (playerArray[l2].wins+playerArray[l2].losses);
-
-
-
-}
-
-
-
+//Shuffles the playerArray so that order of names entered is arbitrary.
 function randomize(playerArray){
   var m = playerArray.length;
   var t, i;
