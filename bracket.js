@@ -11,6 +11,7 @@ var totalWins = 0;
 var numOfGames = 0;
 var numOfPlayers = 0;
 var drawBasket = [];
+var numOfWinsPossible = 0;
 
 
 //Takes the 6 player inputs and generates them in an array. This populates the bracket and scoreboard.
@@ -22,11 +23,13 @@ function generate(eightP){
   if (eightP){
     numOfPlayers = 8;
     numOfGames = 7;
+    numOfWinsPossible = 28;
     playerArray.push(player7);
     playerArray.push(player8);
   } else {
     numOfPlayers = 6;
     numOfGames = 6;
+    numOfWinsPossible = 18;
   }
 
   for (i = 0; i<numOfPlayers; i++){
@@ -168,7 +171,11 @@ function selectRaffle(){
 }
 
 function chooseRandom(){
-  return drawBasket[Math.floor(Math.random() * 18)];
+  //28 winners for 8players
+  //18 winners for 6players
+  return drawBasket[Math.floor(Math.random() * numOfWinsPossible)];
+
+
 }
 
 //Shuffles the playerArray so that order of names entered is arbitrary.
