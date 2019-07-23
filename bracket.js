@@ -12,6 +12,8 @@ var numOfGames = 0;
 var numOfPlayers = 0;
 var drawBasket = [];
 var numOfWinsPossible = 0;
+var scoreA = 0;
+var scoreB = 0;
 
 
 //Takes the 6 player inputs and generates them in an array. This populates the bracket and scoreboard.
@@ -132,12 +134,37 @@ function generate(eightP){
       document.getElementById("tp"+(l2+1)+"rng").innerHTML = (playerArray[l2].wins / totalWins * 100)+ "%";
   }
 
-function displayRaffle(){
-  document.getElementById("raffleModel").style.display = "block";
+
+function displayModal(id){
+    document.getElementById(id).style.display = "block";
 }
 
-function closeRaffle(){
-  document.getElementById("raffleModel").style.display = "none";
+function closeModal(id){
+  document.getElementById(id).style.display = "none";
+}
+
+function increment(id){
+  if (id == 'scoreA'){
+    scoreA++;
+    document.getElementById(id).innerHTML = scoreA;
+  } else {
+    scoreB++;
+    document.getElementById(id).innerHTML = scoreB;
+  }
+}
+
+function decrement(id){
+  if (id == 'scoreA'){
+    if (scoreA>0){
+    scoreA--;
+    document.getElementById(id).innerHTML = scoreA;
+    }
+  } else {
+    if (scoreB>0){
+    scoreB--;
+    document.getElementById(id).innerHTML = scoreB;
+    }
+  }
 }
 
 function selectRaffle(){
@@ -174,8 +201,6 @@ function chooseRandom(){
   //28 winners for 8players
   //18 winners for 6players
   return drawBasket[Math.floor(Math.random() * numOfWinsPossible)];
-
-
 }
 
 //Shuffles the playerArray so that order of names entered is arbitrary.
