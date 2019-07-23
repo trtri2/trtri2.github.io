@@ -141,6 +141,12 @@ function displayModal(id){
 
 function closeModal(id){
   document.getElementById(id).style.display = "none";
+  if (id == 'scorekeep'){
+  scoreA = 0;
+  scoreB = 0;
+  document.getElementById('scoreA').innerHTML = scoreA;
+  document.getElementById('scoreB').innerHTML = scoreB;
+  }
 }
 
 function increment(id){
@@ -166,6 +172,7 @@ function decrement(id){
     }
   }
 }
+
 
 function selectRaffle(){
   var timer = 3;
