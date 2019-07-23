@@ -43,6 +43,28 @@
 <h2> Bracket </h2>
   <div class="bracket">
 
+    <button onclick=displayModal('scorekeep') class="fixed">Scorekeeper</button>
+    <div id="scorekeep" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('scorekeep')">&times;</span>
+        <div class="teamScore">
+        <label>Team A:</label>
+        <label class="scoreLabel" id="scoreA">0</label>
+        <button class="buttonPlus" onclick="increment('scoreA')">+1</button>
+        <button class="buttonMinus" onclick="decrement('scoreA')">-1</button>
+
+        </div>
+
+        <div class="teamScore">
+        <label>Team B:</label>
+        <label class="scoreLabel" id="scoreB">0</label>
+        <button class="buttonPlus" onclick="increment('scoreB')">+1</button>
+        <button class="buttonMinus" onclick="decrement('scoreB')">-1</button>
+
+        </div>
+      </div>
+    </div>
+
     <h2>Round 1:</h2>
     <h3>Game A: </h3>
     <p><label class="sd1"></label> & <label class="sd5"></label><input id='game1a'  type='checkbox' onclick="refreshTable(0, 4, 'game1a', 6, 7)"></input></p>
@@ -180,10 +202,10 @@
   </div> <!-- end of scoreboard-->
 
 
-  <button id="modalBtn" onclick="displayRaffle()">RAFFLE THE WINNER</button>
+  <button id="modalBtn" onclick="displayModal('raffleModel')">RAFFLE THE WINNER</button>
   <div id="raffleModel" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeRaffle()">&times;</span>
+      <span class="close" onclick="closeModal('raffleModel')">&times;</span>
       <button id="raffleBtn" onclick="selectRaffle()">whos got that sauce</button>
       <h2>YOUR CHAMPION IS:</h2>
       <h3 id="winner"></h3>
