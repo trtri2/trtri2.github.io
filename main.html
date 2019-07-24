@@ -24,7 +24,12 @@
 
     <h1>6 Player 2v2 Round Robin</h1>
     <div class="playerLink">
-    <a href="eightP.html">8 Player Bracket</a>
+      <select name="selectNumPlayers" onchange="location = this.value;">
+        <option value="fiveP.html">5 Player</option>
+        <option value="main.html" selected>6 Player</option>
+        <option value="eightP.html">8 Player</option>
+      </select>
+
     </div>
     <br>
     <div id="entry">
@@ -35,7 +40,7 @@
     <label>5:</label><input id='p5' type='text' ></input></br>
     <label>6:</label><input id='p6' type='text' ></input></br>
     <label id='test'></label>
-    <button id='generate' onclick='generate(false)'>Generate</button>
+    <button id='generate' onclick='generate(6)'>Generate</button>
   </div> <!-- end of entry -->
 </br>
 <h2> Bracket </h2>
