@@ -6,7 +6,7 @@ var player5 = new Object();
 var player6 = new Object();
 var player7 = new Object();
 var player8 = new Object();
-var playerArray = [player1, player2, player3, player4, player5, player6];
+var playerArray = [player1, player2, player3, player4, player5];
 var totalWins = 0;
 var numOfGames = 0;
 var numOfPlayers = 0;
@@ -18,20 +18,25 @@ var scoreB = 0;
 
 //Takes the 6 player inputs and generates them in an array. This populates the bracket and scoreboard.
 //TODO: add an extra 'are you sure?' prompt when generating to avoid accidental overwriting. Or disable/remove the button.
-function generate(eightP){
+function generate(playerNum){
   //assign names to player objects
 
 
-  if (eightP){
+  if (playerNum == 8){
     numOfPlayers = 8;
     numOfGames = 7;
     numOfWinsPossible = 28;
     playerArray.push(player7);
     playerArray.push(player8);
+  } else if (playerNum == 5){
+    numOfPlayers = 5;
+    numOfGames = 4;
+    numOfWinsPossible = 10;
   } else {
     numOfPlayers = 6;
     numOfGames = 6;
     numOfWinsPossible = 18;
+    playerArray.push(player6);
   }
 
   for (i = 0; i<numOfPlayers; i++){
@@ -41,7 +46,7 @@ function generate(eightP){
   }
 
   //randomize the players
-//  randomize(playerArray);
+  randomize(playerArray);
 
   //Initialize scoreboard
   for (i = 0; i<playerArray.length; i++){
@@ -57,8 +62,8 @@ function generate(eightP){
   }
 
   //Populate bracket after the players are randomized.
-  if (eightP){
-    for (j = 0; j<7; j++){
+  if (numOfPlayers == 8){
+    for (j = 0; j<numOfGames; j++){
     document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
     document.getElementsByClassName("sd2")[j].innerHTML = playerArray[1].name;
     document.getElementsByClassName("sd3")[j].innerHTML = playerArray[2].name;
@@ -68,9 +73,16 @@ function generate(eightP){
     document.getElementsByClassName("sd7")[j].innerHTML = playerArray[6].name;
     document.getElementsByClassName("sd8")[j].innerHTML = playerArray[7].name;
     }
-
+  } else if (numOfPlayers == 5){
+    for (j = 0; j<numOfGames; j++){
+    document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
+    document.getElementsByClassName("sd2")[j].innerHTML = playerArray[1].name;
+    document.getElementsByClassName("sd3")[j].innerHTML = playerArray[2].name;
+    document.getElementsByClassName("sd4")[j].innerHTML = playerArray[3].name;
+    document.getElementsByClassName("sd5")[j].innerHTML = playerArray[4].name;
+    }
   } else {
-    for (j = 0; j<6; j++){
+    for (j = 0; j<numOfGames; j++){
     document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
     document.getElementsByClassName("sd2")[j].innerHTML = playerArray[1].name;
     document.getElementsByClassName("sd3")[j].innerHTML = playerArray[2].name;
@@ -207,6 +219,7 @@ function selectRaffle(){
 function chooseRandom(){
   //28 winners for 8players
   //18 winners for 6players
+  //10 winners for 5players
   return drawBasket[Math.floor(Math.random() * numOfWinsPossible)];
 }
 
