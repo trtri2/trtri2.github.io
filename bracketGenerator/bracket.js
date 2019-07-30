@@ -26,8 +26,9 @@ function generate(playerNum){
     numOfPlayers = 8;
     numOfGames = 7;
     numOfWinsPossible = 28;
+    playerArray.push(player6);
     playerArray.push(player7);
-    playerArray.push(player8);
+    playerArray.push(player8)
   } else if (playerNum == 5){
     numOfPlayers = 5;
     numOfGames = 4;
