@@ -170,6 +170,7 @@ function increment(id){
     scoreB++;
     document.getElementById(id).innerHTML = scoreB;
   }
+  checkRotate(scoreA, scoreB);
 }
 
 function decrement(id){
@@ -184,8 +185,17 @@ function decrement(id){
     document.getElementById(id).innerHTML = scoreB;
     }
   }
+  checkRotate(scoreA, scoreB)
 }
 
+function checkRotate(scoreA, scoreB){
+  let total = scoreA + scoreB;
+  if (total == 10 || total == 20 || total == 30 || total == 40){
+    document.getElementById("rotateLabel").innerHTML = "Rotate Now!"
+  } else {
+    document.getElementById("rotateLabel").innerHTML = ""
+  }
+}
 
 function selectRaffle(){
   var timer = 3;

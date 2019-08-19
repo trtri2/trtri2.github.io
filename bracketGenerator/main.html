@@ -51,7 +51,7 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal('scorekeep')">&times;</span>
         <div class="teamScore">
-        <label>Team A:</label>
+        <input type='text' value="Team A"></input>
         <label class="scoreLabel" id="scoreA">0</label>
         <button class="buttonPlus" onclick="increment('scoreA')">+1</button>
         <button class="buttonMinus" onclick="decrement('scoreA')">-1</button>
@@ -59,11 +59,14 @@
         </div>
 
         <div class="teamScore">
-        <label>Team B:</label>
+        <input type='text' value="Team B"></input>
         <label class="scoreLabel" id="scoreB">0</label>
         <button class="buttonPlus" onclick="increment('scoreB')">+1</button>
         <button class="buttonMinus" onclick="decrement('scoreB')">-1</button>
         </div>
+        <br>
+        <br>
+        <br><label id="rotateLabel"></label>
       </div>
     </div>
     <h3>Game 1: </h3>
