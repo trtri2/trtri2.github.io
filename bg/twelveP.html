@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- AngularJS Material styles for this template -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link rel='stylesheet' href='./fireworks.css'>
+    <link rel="stylesheet" href="./bracket.css" >
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+    <div style="visibility: hidden" class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+    </div>
+
+    <h1>12 Player 2v2 Round Robin</h1>
+    <div class="playerLink">
+      <select name="selectNumPlayers" onchange="location = this.value;">
+        <option value="fiveP.html">5 Player</option>
+        <option value="main.html">6 Player</option>
+        <option value="eightP.html">8 Player</option>
+        <option value="twelveP.html" selected> 12 Player</option>
+      </select>
+
+    </div>
+    <div id="entry">
+    <label>1:</label><input id='p1' type='text' ></input></br>
+    <label>2:</label><input id='p2' type='text' ></input></br>
+    <label>3:</label><input id='p3' type='text' ></input></br>
+    <label>4:</label><input id='p4' type='text' ></input></br>
+    <label>5:</label><input id='p5' type='text' ></input></br>
+    <label>6:</label><input id='p6' type='text' ></input></br>
+    <label>7:</label><input id='p7' type='text' ></input></br>
+    <label>8:</label><input id='p8' type='text' ></input></br>
+    <label>9:</label><input id='p9' type='text' ></input></br>
+    <label>10:</label><input id='p10' type='text' ></input></br>
+    <label>11:</label><input id='p11' type='text' ></input></br>
+    <label>12:</label><input id='p12' type='text' ></input></br>
+
+
+    <button id='generate' onclick='generate(12)'>Generate</button>
+  </div> <!-- end of entry -->
+</br>
+<h2> Bracket </h2>
+  <div class="bracket">
+
+    <button onclick=displayModal('scorekeep') class="fixed">Scorekeeper</button>
+    <div id="scorekeep" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('scorekeep')">&times;</span>
+        <div class="teamScore">
+        <input type='text' value="Team A"></input>
+        <label class="scoreLabel" id="scoreA">0</label>
+        <button class="buttonPlus" onclick="increment('scoreA')">+1</button>
+        <button class="buttonMinus" onclick="decrement('scoreA')">-1</button>
+
+        </div>
+
+        <div class="teamScore">
+        <input type='text' value="Team B"></input>
+        <label class="scoreLabel" id="scoreB">0</label>
+        <button class="buttonPlus" onclick="increment('scoreB')">+1</button>
+        <button class="buttonMinus" onclick="decrement('scoreB')">-1</button>
+        </div>
+        <br>
+        <br>
+        <br><label id="rotateLabel"></label>
+      </div>
+    </div>
+
+    <h2>Round 1:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd1"></label> & <label class="sd12"></label><input id='game1a'  type='checkbox' onclick="refreshTable(0, 11, 'game1a', 8, 9)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd9"></label> & <label class="sd10"></label> <input id='game1b' type='checkbox' onclick="refreshTable(8, 9, 'game1b', 0, 11)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd2"></label> & <label class="sd8"></label><input id='game2a' type='checkbox' onclick="refreshTable(1, 7, 'game2a', 2 , 5)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd3"></label> & <label class="sd6"></label> <input id='game2b' type='checkbox' onclick="refreshTable(2, 5, 'game2b', 1, 7)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd4"></label> & <label class="sd11"></label><input id='Cgame1a' type='checkbox' onclick="refreshTable(3, 10, 'Cgame1a', 4 , 6)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd5"></label> & <label class="sd7"></label> <input id='Cgame1b' type='checkbox' onclick="refreshTable(4, 6, 'Cgame1b', 3, 10)"></input></p>
+    <br>
+    <hr>
+
+
+
+    <h2>Round 2:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd4"></label> & <label class="sd6"></label> <input id='game3a' type='checkbox' onclick="refreshTable(3,5, 'game3a', 2, 9)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd3"></label> & <label class="sd10"></label> <input id='game3b' type='checkbox' onclick="refreshTable(2, 9, 'game3b', 3, 5)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd2"></label> & <label class="sd5"></label><input id='game4a' type='checkbox' onclick="refreshTable(1,4, 'game4a', 0, 6)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd7"></label> <input id='game4b' type='checkbox' onclick="refreshTable(0,6, 'game4b', 1, 4)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd8"></label> & <label class="sd9"></label><input id='Cgame2a' type='checkbox' onclick="refreshTable(7, 8, 'Cgame2a', 10 , 11)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd11"></label> & <label class="sd12"></label> <input id='Cgame2b' type='checkbox' onclick="refreshTable(10, 11, 'Cgame2b', 7, 8)"></input></p>
+
+
+    <br>
+    <hr>
+
+
+
+
+    <h2>Round 3:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd3"></label> & <label class="sd9"></label> <input id='game5a' type='checkbox' onclick="refreshTable(2,8, 'game5a', 3, 6)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd4"></label> & <label class="sd7"></label> <input id='game5b' type='checkbox' onclick="refreshTable(3,6, 'game5b', 2, 8)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd10"></label> & <label class="sd11"></label><input id='game6a' type='checkbox' onclick="refreshTable(9,10, 'game6a', 1, 11)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd12"></label> <input id='game6b' type='checkbox' onclick="refreshTable(1,11, 'game6b', 9, 10)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd1"></label> & <label class="sd5"></label><input id='Cgame3a' type='checkbox' onclick="refreshTable(0, 4, 'Cgame3a', 5 , 7)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd6"></label> & <label class="sd8"></label> <input id='Cgame3b' type='checkbox' onclick="refreshTable(5, 7, 'Cgame3b', 0, 4)"></input></p>
+
+    <br>
+    <hr>
+
+
+
+
+    <h2>Round 4:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd7"></label> & <label class="sd8"></label> <input id='game7a' type='checkbox' onclick="refreshTable(6,7, 'game7a', 9, 11)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd10"></label> & <label class="sd12"></label> <input id='game7b' type='checkbox' onclick="refreshTable(9, 11, 'game7b', 6, 7)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd2"></label> & <label class="sd9"></label> <input id='game8a' type='checkbox' onclick="refreshTable(1,8, 'game8a', 2, 4)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd3"></label> & <label class="sd5"></label> <input id='game8b' type='checkbox' onclick="refreshTable(2, 4, 'game8b', 1, 8)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd1"></label> & <label class="sd4"></label><input id='Cgame4a' type='checkbox' onclick="refreshTable(0, 3, 'Cgame4a', 10 , 5)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd11"></label> & <label class="sd6"></label><input id='Cgame4b' type='checkbox' onclick="refreshTable(10, 5, 'Cgame4b', 0, 3)"></input></p>
+    <br>
+    <hr>
+
+
+    <h2>Round 5:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd3"></label> & <label class="sd12"></label><input id='game9a' type='checkbox' onclick="refreshTable(2,11, 'game9a', 0, 10)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd11"></label> <input id='game9b' type='checkbox' onclick="refreshTable(0,10, 'game9b', 2, 11)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd2"></label> & <label class="sd6"></label><input id='game10a' type='checkbox' onclick="refreshTable(1,5, 'game10a', 6, 8)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd7"></label> & <label class="sd9"></label> <input id='game10b' type='checkbox' onclick="refreshTable(6,8, 'game10b', 1, 5)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd5"></label> & <label class="sd8"></label><input id='Cgame5a' type='checkbox' onclick="refreshTable(4, 7, 'Cgame5a', 3 ,9)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd4"></label> & <label class="sd10"></label> <input id='Cgame5b' type='checkbox' onclick="refreshTable(3, 9, 'Cgame5b', 4, 7)"></input></p>
+
+    <br>
+    <hr>
+
+
+    <h2>Round 6:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd9"></label> & <label class="sd12"></label><input id='game11a' type='checkbox' onclick="refreshTable(8,11, 'game11a', 5, 6)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd6"></label> & <label class="sd7"></label> <input id='game11b' type='checkbox' onclick="refreshTable(5,6, 'game11b', 8,11)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd1"></label> & <label class="sd8"></label><input id='game12a' type='checkbox' onclick="refreshTable(0,7, 'game12a', 1, 3)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd4"></label> <input id='game12b' type='checkbox' onclick="refreshTable(1,3, 'game12b', 0, 7)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd3"></label> & <label class="sd11"></label><input id='Cgame6a' type='checkbox' onclick="refreshTable(2, 10, 'Cgame6a', 4 , 9)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd5"></label> & <label class="sd10"></label> <input id='Cgame6b' type='checkbox' onclick="refreshTable(4, 9, 'Cgame6b', 2, 10)"></input></p>
+
+
+    <br>
+    <hr>
+
+    <h2>Round 7:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd1"></label> & <label class="sd3"></label><input id='game13a' type='checkbox' onclick="refreshTable(0,2, 'game13a', 6, 10)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd7"></label> & <label class="sd11"></label> <input id='game13b' type='checkbox' onclick="refreshTable(6,10, 'game13b', 0,2)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd2"></label> & <label class="sd10"></label><input id='game14a' type='checkbox' onclick="refreshTable(1,9, 'game14a', 3, 8)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd4"></label> & <label class="sd9"></label> <input id='game14b' type='checkbox' onclick="refreshTable(3,8 , 'game14b', 1, 9)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd8"></label> & <label class="sd12"></label><input id='Cgame7a' type='checkbox' onclick="refreshTable(7, 11, 'Cgame7a', 4 , 5)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd5"></label> & <label class="sd6"></label> <input id='Cgame7b' type='checkbox' onclick="refreshTable(4, 5, 'Cgame7b', 7, 11)"></input></p>
+
+    <br>
+    <hr>
+
+    <h2>Round 8:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd1"></label> & <label class="sd9"></label><input id='Agame8a' type='checkbox' onclick="refreshTable(0,8, 'Agame8a', 2, 7)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd3"></label> & <label class="sd8"></label> <input id='Agame8b' type='checkbox' onclick="refreshTable(2,7, 'Agame8b', 0,8)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd4"></label> & <label class="sd5"></label><input id='Bgame8a' type='checkbox' onclick="refreshTable(3,4, 'Bgame8a', 6, 11)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd7"></label> & <label class="sd12"></label> <input id='Bgame8b' type='checkbox' onclick="refreshTable(6,11, 'Bgame8b', 3, 4)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd2"></label> & <label class="sd11"></label><input id='Cgame8a' type='checkbox' onclick="refreshTable(1, 10, 'Cgame8a', 5 , 9)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd6"></label> & <label class="sd10"></label> <input id='Cgame8b' type='checkbox' onclick="refreshTable(5,9, 'Cgame8b', 1,10)"></input></p>
+
+    <br>
+    <hr>
+
+    <h2>Round 9:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd6"></label> & <label class="sd9"></label><input id='Agame9a' type='checkbox' onclick="refreshTable(5,8, 'Agame9a', 4, 10)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd5"></label> & <label class="sd11"></label> <input id='Agame9b' type='checkbox' onclick="refreshTable(4,10, 'Agame9b', 5,8)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd3"></label> & <label class="sd7"></label><input id='Bgame9a' type='checkbox' onclick="refreshTable(2,6, 'Bgame9a', 7, 9)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd8"></label> & <label class="sd10"></label> <input id='Bgame9b' type='checkbox' onclick="refreshTable(7,9 , 'Bgame9b', 2, 6)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd1"></label> & <label class="sd2"></label><input id='Cgame9a' type='checkbox' onclick="refreshTable(0, 1, 'Cgame9a', 3 , 11)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd4"></label> & <label class="sd12"></label> <input id='Cgame9b' type='checkbox' onclick="refreshTable(3, 11, 'Cgame9b', 0, 1)"></input></p>
+
+    <br>
+    <hr>
+
+    <h2>Round 10:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd5"></label> & <label class="sd12"></label><input id='Agame10a' type='checkbox' onclick="refreshTable(4,11, 'Agame10a', 1, 2)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd2"></label> & <label class="sd3"></label> <input id='Agame10b' type='checkbox' onclick="refreshTable(1,2, 'Agame10b', 4,11)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd4"></label> & <label class="sd8"></label><input id='Bgame10a' type='checkbox' onclick="refreshTable(3,7, 'Bgame10a', 8,10)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd9"></label> & <label class="sd11"></label> <input id='Bgame10b' type='checkbox' onclick="refreshTable(8,10 , 'Bgame10b', 3, 7)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd7"></label> & <label class="sd10"></label><input id='Cgame10a' type='checkbox' onclick="refreshTable(6, 9, 'Cgame10a', 0, 5)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd6"></label> <input id='Cgame10b' type='checkbox' onclick="refreshTable(0, 5, 'Cgame10b', 6,9)"></input></p>
+
+    <br>
+    <hr>
+
+    <h2>Round 11:</h2>
+    <h3>Game A: </h3>
+    <p><label class="sd3"></label> & <label class="sd4"></label><input id='Agame11a' type='checkbox' onclick="refreshTable(2,3, 'Agame11a', 5,11)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd6"></label> & <label class="sd12"></label> <input id='Agame11b' type='checkbox' onclick="refreshTable(5,11, 'Agame11b', 2,3)"></input></p>
+
+    <h3>Game B: </h3>
+    <p><label class="sd5"></label> & <label class="sd9"></label><input id='Bgame11a' type='checkbox' onclick="refreshTable(4,8, 'Bgame11a', 0, 9)"></input> </p>
+    <p>vs.</p>
+    <p><label class="sd1"></label> & <label class="sd10"></label> <input id='Bgame11b' type='checkbox' onclick="refreshTable(0,9 , 'Bgame11b', 4, 8)"></input></p>
+
+    <h3>Game C: </h3>
+    <p><label class="sd2"></label> & <label class="sd7"></label><input id='Cgame11a' type='checkbox' onclick="refreshTable(1, 6, 'Cgame11a', 7 , 10)"></input></p>
+    <p>vs.</p>
+    <p><label class="sd8"></label> & <label class="sd11"></label> <input id='Cgame11b' type='checkbox' onclick="refreshTable(7, 10, 'Cgame11b', 1, 6)"></input></p>
+
+    <br>
+    <hr>
+
+
+  </div> <!-- end of bracket -->
+
+
+<h2> Scoreboard </h2>
+<div class="scoreboard">
+    <table>
+      <tr>
+        <th>Players</th>
+        <th>Score</th>
+        <th>#Games Remaining</th>
+        <th>%RNG</th>
+      </tr>
+      <tr>
+        <td id='tp1' type='text'></td>
+        <td id='tp1score' type='text'></td>
+        <td id='tp1games' type='text'></td>
+        <td id='tp1rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp2' type='text'></td>
+        <td id='tp2score' type='text'></td>
+        <td id='tp2games' type='text'></td>
+        <td id='tp2rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp3' type='text'></td>
+        <td id='tp3score' type='text'></td>
+        <td id='tp3games' type='text'></td>
+        <td id='tp3rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp4' type='text'></td>
+        <td id='tp4score' type='text'></td>
+        <td id='tp4games' type='text'></td>
+        <td id='tp4rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp5' type='text'></td>
+        <td id='tp5score' type='text'></td>
+        <td id='tp5games' type='text'></td>
+        <td id='tp5rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp6' type='text'></td>
+        <td id='tp6score' type='text'></td>
+        <td id='tp6games' type='text'></td>
+        <td id='tp6rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp7' type='text'></td>
+        <td id='tp7score' type='text'></td>
+        <td id='tp7games' type='text'></td>
+        <td id='tp7rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp8' type='text'></td>
+        <td id='tp8score' type='text'></td>
+        <td id='tp8games' type='text'></td>
+        <td id='tp8rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp9' type='text'></td>
+        <td id='tp9score' type='text'></td>
+        <td id='tp9games' type='text'></td>
+        <td id='tp9rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp10' type='text'></td>
+        <td id='tp10score' type='text'></td>
+        <td id='tp10games' type='text'></td>
+        <td id='tp10rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp11' type='text'></td>
+        <td id='tp11score' type='text'></td>
+        <td id='tp11games' type='text'></td>
+        <td id='tp11rng' type='text'></td>
+      </tr>
+      <tr>
+        <td id='tp12' type='text'></td>
+        <td id='tp12score' type='text'></td>
+        <td id='tp12games' type='text'></td>
+        <td id='tp12rng' type='text'></td>
+      </tr>
+    </table>
+  </div> <!-- end of scoreboard-->
+
+
+  <button id="modalBtn" onclick="displayModal('raffleModel')">RAFFLE THE WINNER</button>
+  <div id="raffleModel" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('raffleModel')">&times;</span>
+      <button id="raffleBtn" onclick="selectRaffle()">whos got that sauce</button>
+      <h2>YOUR CHAMPION IS:</h2>
+      <h3 id="winner"></h3>
+    </div>
+  </div>
+
+  </div> <!-- end of app -->
+  </body>
+  <script src="./bracket.js"></script>
+</html>

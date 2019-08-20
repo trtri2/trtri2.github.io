@@ -6,6 +6,10 @@ var player5 = new Object();
 var player6 = new Object();
 var player7 = new Object();
 var player8 = new Object();
+var player9 = new Object();
+var player10 = new Object();
+var player11 = new Object();
+var player12 = new Object();
 var playerArray = [player1, player2, player3, player4, player5];
 var totalWins = 0;
 var numOfGames = 0;
@@ -21,14 +25,24 @@ var scoreB = 0;
 function generate(playerNum){
   //assign names to player objects
 
-
   if (playerNum == 8){
     numOfPlayers = 8;
     numOfGames = 7;
     numOfWinsPossible = 28;
     playerArray.push(player6);
     playerArray.push(player7);
-    playerArray.push(player8)
+    playerArray.push(player8);
+  } else if (playerNum == 12) {
+    numOfPlayers = 12;
+    numOfGames = 11;
+    numOfWinsPossible = 66;
+    playerArray.push(player6);
+    playerArray.push(player7);
+    playerArray.push(player8);
+    playerArray.push(player9);
+    playerArray.push(player10);
+    playerArray.push(player11);
+    playerArray.push(player12);
   } else if (playerNum == 5){
     numOfPlayers = 5;
     numOfGames = 4;
@@ -81,6 +95,21 @@ function generate(playerNum){
     document.getElementsByClassName("sd3")[j].innerHTML = playerArray[2].name;
     document.getElementsByClassName("sd4")[j].innerHTML = playerArray[3].name;
     document.getElementsByClassName("sd5")[j].innerHTML = playerArray[4].name;
+    }
+  } else if (numOfPlayers == 12){
+    for (j = 0; j<numOfGames; j++){
+    document.getElementsByClassName("sd1")[j].innerHTML = playerArray[0].name;
+    document.getElementsByClassName("sd2")[j].innerHTML = playerArray[1].name;
+    document.getElementsByClassName("sd3")[j].innerHTML = playerArray[2].name;
+    document.getElementsByClassName("sd4")[j].innerHTML = playerArray[3].name;
+    document.getElementsByClassName("sd5")[j].innerHTML = playerArray[4].name;
+    document.getElementsByClassName("sd6")[j].innerHTML = playerArray[5].name;
+    document.getElementsByClassName("sd7")[j].innerHTML = playerArray[6].name;
+    document.getElementsByClassName("sd8")[j].innerHTML = playerArray[7].name;
+    document.getElementsByClassName("sd9")[j].innerHTML = playerArray[8].name;
+    document.getElementsByClassName("sd10")[j].innerHTML = playerArray[9].name;
+    document.getElementsByClassName("sd11")[j].innerHTML = playerArray[10].name;
+    document.getElementsByClassName("sd12")[j].innerHTML = playerArray[11].name;
     }
   } else {
     for (j = 0; j<numOfGames; j++){
@@ -228,6 +257,7 @@ function selectRaffle(){
 }
 
 function chooseRandom(){
+  //66 winners for 12players
   //28 winners for 8players
   //18 winners for 6players
   //10 winners for 5players
