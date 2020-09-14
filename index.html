@@ -1,81 +1,401 @@
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <title>Leon Trieu</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="description" content="I am Ming Wang, a CS student at the University of Pittsburgh and a software developer.">
+    <title>Leon Trieu's Portfolio</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css" rel="stylesheet" type="text/css">
+    <link href="src/style.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/439d8786ed.js"></script>
+    <link rel="icon" href="src/img/prev_img/favicon.png">
+</head>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
-  </head>
-
-  <body>
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">trtri2.github.io</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                </ul>
-              </nav>
+<body>
+    <header id="head">
+        <div class="container">
+            <div id="header_blob">
+                <img data-aos="zoom-out-up" alt="" class="circle responsive-img z-depth-3" id="my_picture" src="src/img/headshot_1.JPG">
+                <div id="header_text">
+                    <br>
+                    <h1 data-aos="zoom-out-up" data-aos-delay="250">Leon Trieu</h1>
+                    <h5 data-aos="zoom-out-up" data-aos-delay="450">Computer Science Undergraduate @ Simon Fraser University</h5>
+                    <br>
+                    <h5 data-aos="zoom-out-up" data-aos-delay="350">Seeking 2021 Internships</h5>
+                    <div data-aos="zoom-out-up" data-aos-delay="650" id="header_social_links">
+                     <a class="header_link" href="mailto:leontrieu88@hotmail.com" id="li_icon" target="_blank"><i aria-hidden="true" class=
+                        "fa fa-envelope-o fa-3x"></i></a>
+                    <a class="header_link" href="https://www.linkedin.com/in/trtri2" id="li_icon" target="_blank"><i aria-hidden="true" class=
+                        "fab fa-linkedin fa-3x"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <img src="assets/profilepic" alt="cover photo"></img>
-          <div class="inner cover">
-            <h1 class="cover-heading">Leon Trieu</h1>
-            <p class="lead">Welcome to my portfolio.</p>
-            <p class="lead">
-              <br></br>
-              <a class="btn btn-lg btn-default" href="#popup1">About Me</a>
+            <nav>
+                <div class="nav-wrapper">
+                    <ul id="nav-mobile">
+                        <li class="link_underline">
+                            <a class="waves-effect waves-light btn-flat btn-large header_btn scroll animated_link2" href="index.html#about_me" data-aos="flip-down" data-aos-delay="750">
+                            About Me</a>
+                        </li>
+                        
+                        <li class="link_underline">
+                            <a class="waves-effect waves-light btn-flat btn-large header_btn scroll" href="index.html#resume" data-aos="flip-down" data-aos-delay="850">
+                            Résume</a>
+                        </li>
 
-              <div id="popup1" class="overlay">
-	               <div class="popup">
-		                 <h2>About Me</h2>
-		                   <a class="close" href="#">&times;</a>
-		                     <div class="content">
-			                   Who am I? Just a wavy dude trying to get on that big wave.
-                         <br>
-                         <br>
-                         Currently enrolled in Computing Science, Simon Fraser University. Love what I do. Current interests are in big data, back-end architectures and more!
-                        <br><br>
-                         I enjoy other things too though, like music and cooking! Find out more on the next episode of dragonballz.
-                         <br><br>
-                         Connect with me! <br> <a href="https://github.com/trtri2/trtri2.github.io">Github</a><br> <a href="https://www.linkedin.com/in/trtri2/">LinkedIn</a> <p>leontrieu88@gmail.com</p>
-		             </div>
-	               </div>
-              </div>
-            </p>
-          </div>
+                        <li class="link_underline">
+                            <a class="waves-effect waves-light btn-flat btn-large header_btn scroll" href="index.html#projects" data-aos="flip-down" data-aos-delay="800">
+                            Projects</a>
+                        </li>
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>"If at first you don’t succeed, call it version 1.0."  ― Anonymous</p>
-            </div>
-          </div>
-
+                        <li class="link_underline">
+                            <a class="waves-effect waves-light btn-flat btn-large header_btn scroll" href="index.html#contact_me" data-aos="flip-down" data-aos-delay="900">
+                            Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-
-      </div>
-
+    </header>
+    <div class="container" id="about_me">
+        <div class="row center">
+            <img class="center" src="https://icons.iconarchive.com/icons/thalita-torres/office/256/pencil-blue-icon.png" width="150px" data-aos="zoom-out-up">
+            <h2 class="light-blue-text text-darken-4 center" data-aos="zoom-out-up">About Me</h2>
+            <br>
+        </div>
+        <div class="row">
+            <p class="col s12 m8 offset-m2 center" data-aos="zoom-out-up">Hi there! I'm <strong>Leon Trieu</strong> and I am an undergraduate computer science <strong>student</strong> at <strong>Simon Fraser University</strong> residing in Vancouver, B.C. I love being a <strong>software engineer</strong>                who enjoys working in all areas of the field and solving challenging, complex problems.
+                <br>
+                <br>
+            I'm just a wavy dude trying to catch that big wave!
+            </p>
+        </div>
     </div>
-  </body>
+    
+    <div class="container" id="resume">
+        <br>
+        <hr>
+        <br>
+        <div class="row center">
+            <br>
+            <img class="center" src="https://icons.iconarchive.com/icons/thalita-torres/office/256/clipboard-icon.png" width="150px" data-aos="zoom-out-up">
+            <h2 class="blue-text text-darken-4 center" data-aos="zoom-out-up">Experience Timeline</h2>
+            <br>
+            <h5 class="center" data-aos="zoom-out-up">This is my <strong class="blue-text text-darken-4">leadership</strong> and <strong class="blue-text text-darken-4">work experiences</strong>
+            timeline.</h5>
+        </div>
+        <div class="row">
+            <div class="col sm12 m4">
+                <br>
+                <h4 class="blue-gray-text lighten-4 center" data-aos="zoom-out-right"><i class="fa fa-file-text-o blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;My Résume</h4>
+                <p class="center" data-aos="zoom-out-right">You can view my current résume in <strong>PDF</strong> format here.</p>
+                <div class="center resume_buttons" data-aos="zoom-out-right">
+                    <a class="waves-effect waves-light btn-large green_background center btn-resume" href="Resume_LeonTrieu.pdf" target="_"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View</a>
+                </div>
+                <br>
+                <hr>
+                <h4 class="blue-gray-text lighten-4 center" data-aos="zoom-out-right"><i class="fab fa-github blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;<i class="fab fa-linkedin blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;GitHub & <br>LinkedIn</h4>
+                <p class="center" data-aos="zoom-out-right">Click below to either view my <strong>GitHub profile</strong> or my <strong>LinkedIn profile</strong>.</p>
+                <div class="center resume_buttons" data-aos="zoom-out-right">
+                    <a class="waves-effect waves-light btn-large grey_background center btn-resume" href="https://github.com/trtri2" target="_blank"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;GitHub</a>
+                    <a class="waves-effect waves-light btn-large linkedin_background center btn-resume" href="https://www.linkedin.com/in/trtri2" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;LinkedIn</a>
+                </div>
+                <br>
+                <hr>
+                <h4 class="blue-gray-text lighten-4 center" data-aos="zoom-out-right"><i class="fa fa-code blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;Programming Languages</h4>
+                <div class="center" data-aos="zoom-out-right">
+                    <div class="chip blue-text text-darken-4">Java</div>
+                    <div class="chip blue-text text-darken-4">Python</div>
+                    <div class="chip blue-text text-darken-4">HTML</div>
+                    <div class="chip blue-text text-darken-4">C++</div>
+                    <br>
+                    <div class="chip blue-text text-darken-4">JavaScript</div>
+                    <div class="chip blue-text text-darken-4">C</div>
+                    <div class="chip blue-text text-darken-4">C#</div>
+                    <div class="chip blue-text text-darken-4">Swift</div>
+                </div>
+                <br>
+                <hr>
+                <h4 class="blue-gray-text lighten-4 center" data-aos="zoom-out-right"><i class="fa fa-code-fork blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;Libraries & Frameworks</h4>
+                <div class="center" data-aos="zoom-out-right">
+                    <div class="chip blue-text text-darken-4">Firebase</div>
+                    <div class="chip blue-text text-darken-4">Flask</div>
+                    <div class="chip blue-text text-darken-4">Google Cloud</div>                    
+                    <div class="chip blue-text text-darken-4">Clarifai API</div>
+                    <br>
+                    <div class="chip blue-text text-darken-4">AngularJS</div>
+                    <div class="chip blue-text text-darken-4">Slack API</div>
+                </div>
+                <br>
+                <hr>
+                <h4 class="blue-gray-text lighten-4 center" data-aos="zoom-out-right"><i class="fa fa-terminal blue-text text-darken-4" aria-hidden="true"></i>&nbsp;&nbsp;Technologies</h4>
+                <div class="center" data-aos="zoom-out-right">
+                    <div class="chip blue-text text-darken-4">Git</div>
+                    <div class="chip blue-text text-darken-4">Xcode</div>
+                    <div class="chip blue-text text-darken-4">JIRA</div>
+                    <br>
+                    <div class="chip blue-text text-darken-4">Windows</div>
+                    <div class="chip blue-text text-darken-4">Linux</div>
+                    <div class="chip blue-text text-darken-4">macOS</div>
+                    <br>
+                    <div class="chip blue-text text-darken-4">NoSQL</div>
+                    <div class="chip blue-text text-darken-4">MySQL</div>
+                    <br>
+                    <div class="chip blue-text text-darken-4">Eclipse</div>
+                    <div class="chip blue-text text-darken-4">VSCode</div>
+                    <div class="chip blue-text text-darken-4">SAP Business Objects</div>
+                    <div class="chip blue-text text-darken-4">Unity</div>
+                </div>
+                <br>
+                <hr>
+            </div>
+            <div class="col sm12 m7 offset-m1">
+                <section id="timeline" class="timeline-outer">
+                    <ul class="timeline">
+                        <li class="event z-depth-2 blue-grey lighten-5" data-date="September 2019 - April 2020" data-aos="zoom-out-left">
+                            <i class="fa fa-caret-left fa-3x blue-grey-text text-lighten-5" aria-hidden="true"></i>
+                            <h3 class="place">SAP</h3>
+                            <h3 class="title">Project Manager & Software Test Developer Intern</h3>
+                            <h3 class="location">Vancouver, BC</h3>
+                            <hr class="timeline-hr">
+                            <ul class="experience_bullets experience">
+                                <li>Performed regression, end-to-end, and acceptance testing on SAP’s BI products and resolved various
+                                    bugs/feature defects for patch delivery</li>
+                                <li>Facilitated cross-group meetings and with international teams and assisted the global delivery of software
+                                    patches to meet release deadlines </li>
+                            </ul>
+                        </li>
+                        <li class="event z-depth-2 blue-grey lighten-4" data-date="January 2020 - April 2020" data-aos="zoom-out-left">
+                            <i class="fa fa-caret-left fa-3x blue-grey-text text-lighten-4" aria-hidden="true"></i>
+                            <h3 class="place">SAP</h3>
+                            <h3 class="title">Intern Committee Lead - Social</h3>
+                            <h3 class="location">Vancouver, BC</h3>
+                            <hr class="timeline-hr">
+                            <ul class="experience_bullets experience">
+                                <li>Contributed in a team of 9 committee members overseeing 150+ interns under Canada's largest internship experience program</li>
+                                <li>Directed and organized multiple social and networking events with high engagement of 100+ interns</liL>
+                            </ul>
+                        </li>
+                        <li class="event z-depth-2 blue-grey lighten-5" data-date="May 2019 - August 2019" data-aos="zoom-out-left">
+                            <i class="fa fa-caret-left fa-3x blue-grey-text text-lighten-5" aria-hidden="true"></i>
+                            <h3 class="place">Global Relay</h3>
+                            <h3 class="title">Software Development Engineer in Test Co-op</h3>
+                            <h3 class="location">Vancouver, BC</h3>
+                            <hr class="timeline-hr">
+                            <ul class="experience_bullets experience">
+                                <li>SDET role with the mobile iOS development team in quality assurance, testing, and documentation on the
+                                    Global Relay Message product</li>
+                                <li>Wrote automatable test scripts in Swift and Xcode for unit and integration tests and deployed builds to Jenkins</li>
+                                <li>Developed in an agile manner with bi-weekly sprint cycles, daily scrum meetings, and frequent feature deliveries</li>
+                            </ul>
+                        </li>
+                        <li class="event z-depth-2 blue-grey lighten-4" data-date="August 2018 - July 2019" data-aos="zoom-out-left">
+                            <i class="fa fa-caret-left fa-3x blue-grey-text text-lighten-4" aria-hidden="true"></i>
+                            <h3 class="place">Under the GUI Academy Inc.</h3>
+                            <h3 class="title">Coding Instructor</h3>
+                            <h3 class="location">Vancouver, BC</h3>
+                            <hr class="timeline-hr">
+                            <ul class="experience_bullets experience">
+                                <li>Taught and tutored youth classes in game development and basic coding principles in languages such as C# and Python</li>
+                                <li>Prepared and organized weekly lessons derived from class curriculum as well as developing new curriculum for advanced programming topics</li>
+                                <li>Interacted and maintained professional relationships with fellow peers, instructors and parents of the program</li>
+                            </ul>
+                        </li>
+                        <li class="event z-depth-2 blue-grey lighten-5" data-date="Sept 2017" data-aos="zoom-out-left">
+                            <i class="fa fa-caret-left fa-3x blue-grey-text text-lighten-5" aria-hidden="true"></i>
+                            <h3 class="place">Simon Fraser University</h3>
+                            <h3 class="title">Undergraduate Student</h3>
+                            <h3 class="location">Burnaby, BC</h3>
+                            <hr class="timeline-hr">
+                            <ul class="experience_bullets experience">
+                                <li>Expected Graduation: Dec 2021</li>
+                                <li>Bachelors of Science in Computing Science</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="projects">
+        <hr>
+        <br>
+            <div class="row center">
+                <br>
+                <img class="center" src="https://icons.iconarchive.com/icons/thalita-torres/office/256/painting-palette-icon.png" width="150px" data-aos="zoom-out-up">
+                <h2 class="blue-text text-darken-4 center" data-aos="zoom-out-up">Projects</h2>
+                <br>
+                <h5 class="center" data-aos="zoom-out-up">Here's what I've been working on lately!</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card horizontal" data-aos="flip-up">
+                        <div class="card-image valign-wrapper">
+                            <img src="src/img/chadder.PNG" class="valign">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4 class="center">Chadder</h4>
+                                <p>A slack-based chatbot that helped new remote interns or hires answer onboarding
+                                    related questions and connect them with expert employees within the SAP internal community
+                                    <br>
+                                    <br>Developed using Python and Natural Language Processing Kit by Google Cloud
+                                    <br>
+                                    <br><strong>1st place team finish out of a 12-team competition hosted internally for interns at SAP
+                                        Labs Vancouver</strong></p>
+                            </div>
+                            <div class="card-action">
+                                <div class="chip blue-text text-darken-4">Slack API</div>
+                                <div class="chip blue-text text-darken-4">Python</div>
+                                <div class="chip blue-text text-darken-4">Google Cloud</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="card horizontal" data-aos="flip-up">
+                        <div class="card-image valign-wrapper">
+                            <img src="src/img/firstbite.png" class="valign" alt="FirstBite logo">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4 class="center">FirstBite</h4>
+                                <p>A team project to develop an iOS resource & tool to help individuals with newborns and toddlers based their dietary needs and consumption
+                                <br>
+                                <br>
+                                Features include nutritional food guides, logging diaries, unique user sign-up/log-in, personal profile pages and more</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn red_background center" href="https://www.youtube.com/watch?v=CmiQvYa9JJk&" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Demo</a>
+                                <a class="waves-effect waves-light btn grey_background center" href="https://github.com/trtri2/FirstBite" target="_blank"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Github</a>
+                                <br>
+                                <br>
+                                <div class="chip blue-text text-darken-4">Xcode</div>
+                                <div class="chip blue-text text-darken-4">Swift</div>
+                                <div class="chip blue-text text-darken-4">Firebase</div>
+                                <div class="chip blue-text text-darken-4">iOS</div>
+
+                            </div>
+                        </div>
+                    </div>
+    
+               </div>
+    
+                <div class="col s12 m6">
+                    <div class="card horizontal" data-aos="flip-up">
+                        <div class="card-image valign-wrapper">
+                            <img src="src/img/bizhacks2019.PNG" class="valign" alt="Weather Bot Logo">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4 class="center">Visual Eyes</h4>
+                                <p>A mobile application that uses image recognition and machine learning technology to detect eletronics, products, and brands which redirects to a Best Buy product page
+                                <br>
+                                <br>
+                                Built a minimal viable product using Unity (C#), Android SDK and Clarifai API along with a business pitch within 24 hours
+                                <br>
+                                <br>
+                                Resulted in a Second Place finish out of 44 teams at BizHacks 2019!
+                            </p>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn red_background center" href="src/img/visualeyes.mp4" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Demo</a>
+                                <a class="waves-effect waves-light btn red_background center" href="https://www.youtube.com/watch?v=u1J2Hl43w3U" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Presentation</a>
+                                <br>
+                                <br>
+                                <div class="chip blue-text text-darken-4">Clarifai API</div>
+                                <div class="chip blue-text text-darken-4">Unity</div>
+                                <div class="chip blue-text text-darken-4">C#</div>
+                                <div class="chip blue-text text-darken-4">Android SDK</div>
+    
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card horizontal" data-aos="flip-up">
+                        <div class="card-image valign-wrapper">
+                            <img src="src/img/angularJS.png" class="valign" alt="AngularJS Logo">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4 class="center">Postfix Evaluator</h4>
+                                <p>A sample project to explore AngularJS and HTML
+                                <br>
+                                <br>
+                                A simple web app that calculates arithmetic expressions in order of operations using post-fix notation                    
+                                <br>
+                                <br>
+                            </p>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn green_background center" href="postfixevaluator/index.html" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Website</a>
+                                <a class="waves-effect waves-light btn red_background center" href="https://www.youtube.com/watch?v=u1J2Hl43w3U" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Presentation</a>
+                                <br>
+                                <br>
+                                <div class="chip blue-text text-darken-4">AngularJS</div>
+                                <div class="chip blue-text text-darken-4">HTML</div>
+                                <div class="chip blue-text text-darken-4">JavaScript</div>
+                                <div class="chip blue-text text-darken-4">CSS</div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>        
+        </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row" id="contact_me">
+                <h4 class="center white-text" data-aos="zoom-out-up">CONNECT WITH ME</h4>
+                <h5 class="center white-text col s6 offset-s3" data-aos="zoom-out-up">I'd love to hear
+                from you! Feel free to connect with me on any of these social
+                networks.</h5>
+            </div>
+            <div class="row center">
+                <br>
+                <a class="social_links tooltipped" data-position="bottom" data-delay="50" data-tooltip="leontrieu88@hotmail.com" href="mailto:leontrieu88@hotmail.com" target="_blank"><i aria-hidden="true" class="fa fa-envelope-o fa-5x" data-aos="flip-up" data-aos-delay="400"></i></a>
+                <a class="social_links tooltipped" data-position="bottom" data-delay="50" data-tooltip="github.com/trtri2" href="https://github.com/trtri2" target="_blank"><i aria-hidden="true" class="fab fa-github fa-5x" data-aos="flip-up" data-aos-delay="600"></i></a>
+                <a class="social_links tooltipped" data-position="bottom" data-delay="50" data-tooltip="linkedin.com/in/trtri2" href="https://www.linkedin.com/in/trtri2" target="_blank"><i aria-hidden="true" class="fab fa-linkedin fa-5x" data-aos="flip-up" data-aos-delay="800"></i></a>
+                <a class="social_links tooltipped" data-position="bottom" data-delay="50" data-tooltip="facebook.com/leon.trieu/" href="https://www.facebook.com/leon.trieu/" target="_blank"><i aria-hidden="true" class="fab fa-facebook fa-5x" data-aos="flip-up" data-aos-delay="1000"></i></a>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center">
+                Made by Leon Trieu with inspiration from Devansh Desai
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-65611163-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+    <script type="text/javascript" src="src/script.js"></script>
+</body>
+
 </html>
